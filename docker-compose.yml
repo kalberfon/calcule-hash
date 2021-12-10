@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  app:
+    container_name: hash-app
+    build:
+      context: .
+      dockerfile: .docker/app/Dockerfile
+    ports:
+      - 9000
+      - 8000:8000
+    volumes:
+      - ./application:/application
+#    depends_on:
+#      - mysql
+#    links:
+#      - mysql
+#  mysql:
+#    image: mysql:8.0
+#    container_name: mysql
+#    command: --default-authentication-plugin=mysql_native_password
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=secret
+#      - MYSQL_DATABASE=laravel
+#    ports:
+#      - "33061:3306"
+#    volumes:
+#      - mysql-data_hash:/var/lib/mysql
+#
+#volumes:
+#  mysql-data_hash:
+#    driver: local

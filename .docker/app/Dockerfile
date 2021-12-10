@@ -1,0 +1,44 @@
+FROM php:7.4-fpm-alpine
+RUN apk update && apk upgrade && \
+    apk add --no-cache bash git openssh
+
+# Install gd, iconv, mbstring, mysql, soap, sockets, zip, and zlib extensions
+# see example at https://hub.docker.com/_/php/
+RUN apk add --update \
+		$PHPIZE_DEPS \
+		freetype-dev \
+		git \
+		libjpeg-turbo-dev \
+		libpng-dev \
+		libxml2-dev \
+		libzip-dev \
+		openssh-client \
+		php7-json \
+		php7-openssl \
+		php7-pdo \
+		php7-pdo_mysql \
+		php7-session \
+		php7-simplexml \
+		php7-tokenizer \
+		php7-xml \
+		php7-zip \
+		sqlite \
+	&& docker-php-ext-install iconv soap sockets exif bcmath pdo_mysql \
+	&& docker-php-ext-configure gd --with-jpeg --with-freetype \
+	&& docker-php-ext-install gd \
+	&& docker-php-ext-install zip
+
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+	&& php composer-setup.php \
+	&& php -r "unlink('composer-setup.php');" \
+	&& mv composer.phar /usr/bin/composer
+
+
+COPY  ./.docker/app/php.ini /usr/local/etc/php/php.ini
+
+WORKDIR /application
+
+COPY ./ /application
+
+EXPOSE  9000
+ENTRYPOINT ["php-fpm"]
