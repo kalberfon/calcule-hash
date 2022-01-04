@@ -20,7 +20,7 @@
 
 #### Rota de consulta
 
-**Collection do postman com as rotas [Nofaro Collection](./calcule-hash.collection.json)**
+**Collection do postman com as rotas [Postman Collection](./calcule-hash.collection.json)**
 
  - `'GET' /api/hash`  retorna todos os hash criados com um paginador **(Filtros e exemplos na collection)**
  - `'POST' /api/hash` Solicita um novo hash **(Filtros e exemplos na collection)**
