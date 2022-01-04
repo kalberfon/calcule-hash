@@ -19,7 +19,7 @@ class TestHashCalculate extends Command
      *
      * @var string
      */
-    protected $signature = 'nofaro:test {string : Texto que sera transformado em hash } {--R|request=1 : numero de requisições a serem feitas}';
+    protected $signature = 'hash:calcule {string : Texto que sera transformado em hash } {--R|request=1 : numero de requisições a serem feitas}';
 
     /**
      * The console command description.
