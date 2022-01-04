@@ -16,11 +16,11 @@
  - Rode o comando com a assinatura `docker-compose exec app php artisan nofaro:test NofaroKey --request=100`
  Exemplo: 
      ````bash
-    docker-compose exec app php artisan nofaro:test Nofaro --request=12 
+    docker-compose exec app php artisan hash:calcule 'meu lindo teste' --request=12 
 
 #### Rota de consulta
 
-**Collection do postman com as rotas [Nofaro Collection](./Nofaro-hash.collection.json)**
+**Collection do postman com as rotas [Nofaro Collection](./calcule-hash.collection.json)**
 
  - `'GET' /api/hash`  retorna todos os hash criados com um paginador **(Filtros e exemplos na collection)**
  - `'POST' /api/hash` Solicita um novo hash **(Filtros e exemplos na collection)**
