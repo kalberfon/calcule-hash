@@ -13,7 +13,7 @@
 
 #### Comando
 
- - Rode o comando com a assinatura `docker-compose exec app php artisan nofaro:test NofaroKey --request=100`
+ - Rode o comando com a assinatura `docker-compose exec app php artisan hash:calcule 'meu lindo teste' --request=100`
  Exemplo: 
      ````bash
     docker-compose exec app php artisan hash:calcule 'meu lindo teste' --request=12 
